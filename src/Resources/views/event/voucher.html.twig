@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<p class="bg-info">
+    Dear {{ voucher.user.salutation }} {{ voucher.user.forename }} {{ voucher.user.surname }}, you've been successfully registered on event.
+    Please print this voucher code to attend
+</p>
+<div class="alert-success" ><h1>{{ voucher.voucher }}</h1></div>
+
+{% endblock %}

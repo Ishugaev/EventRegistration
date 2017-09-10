@@ -1,0 +1,6 @@
+database:
+    dbname: 'event_registration'
+    user: 'root'
+    password: 'root'
+    host: 'localhost'
+    driver: 'pdo_mysql'

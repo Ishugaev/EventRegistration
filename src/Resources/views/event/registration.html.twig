@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Event Registration</h1>
+    <br />
+    {% if validationErrors %}
+        {% for key, error in validationErrors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error[0] }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="post" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Salutation</label>
+            <div class="col-sm-10">
+                <input type="text" name="event[salutation]" class="form-control" aria-describedby="emailHelp" placeholder="Enter salutation" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Forename</label>
+            <div class="col-sm-10">
+                <input type="text" name="event[forename]" class="form-control" placeholder="Enter Forename" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Surname</label>
+            <div class="col-sm-10">
+                <input type="text" name="event[surname]" class="form-control" placeholder="Enter Surname" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Date of Birth</label>
+            <div class="col-sm-10">
+                <input type="text" id="dateOfBirth" name="event[birthdate]" class="form-control" placeholder="Enter Date of birth" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Telephone Number</label>
+            <div class="col-sm-10">
+                <input type="text" name="event[phone]" class="form-control" placeholder="Enter Telephone Number" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Workshops to attend</label>
+            <div class="col-sm-10">
+                <input type="text" name="event[workshops]" class="form-control" placeholder="Enter How much workshops you're going to attend" required>
+                <small id="workshopsHelp" class="form-text text-muted">(Select from 0 to many)</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Email Address</label>
+            <div class="col-sm-10">
+                <input type="text" name="event[email]" class="form-control" placeholder="Enter Email Address" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input type="password" name="event[password]" class="form-control" placeholder="Enter Password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+{% block custom_js %}
+    <script>
+        $(function () {
+            $('#dateOfBirth').datepicker({
+                endDate: 'now',
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
+{% endblock %}
